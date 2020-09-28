@@ -15,12 +15,11 @@ class GUI(QMainWindow):
 
         # Set some main window's properties
         self.setWindowTitle('Calculator')
-        self.setFixedSize(235, 235)
+        self.setFixedSize(400, 400)
 
         # Set the central widget and the general layout
         self.generalLayout = QVBoxLayout()
 
-        # Set the central widget
         # Set the central widget
         self._centralWidget = QWidget(self)
         self.setCentralWidget(self._centralWidget)
@@ -42,9 +41,7 @@ class GUI(QMainWindow):
         
         # Add the display to the general layout
         self.generalLayout.addWidget(self.display)
-
-
-
+    
     def _createButtons(self):
         """Create the buttons."""
         self.buttons = {}
@@ -71,9 +68,7 @@ class GUI(QMainWindow):
                    '+': (3, 3),
                    '=': (3, 4),
                   }
-
-
-        # Create the buttons and add them to the grid layout
+       # Create the buttons and add them to the grid layout
         for btnText, pos in buttons.items():
             self.buttons[btnText] = QPushButton(btnText)
             self.buttons[btnText].setFixedSize(40, 40)
@@ -81,13 +76,15 @@ class GUI(QMainWindow):
         # Add buttonsLayout to the general layout
         self.generalLayout.addLayout(buttonsLayout)
 
-        def setDisplayText(self, text):
-            """Set display's text."""
-            self.display.setText(text)
-            self.display.setFocus()
-        def getDisplayText(self):
-            """Get display's text."""
-            return self.display.text()
-        def clearDisplay(self):
-            """Clear the display."""
-            self.setDisplayText('')
+
+    def setDisplayText(self, text):
+        """Set display's text."""
+        self.display.setText(text)
+        self.display.setFocus()
+    def getDisplayText(self):
+        """Get display's text."""
+        return self.display.text()
+    
+    def clearDisplay(self):
+        """Clear the display."""
+        self.setDisplayText('')
